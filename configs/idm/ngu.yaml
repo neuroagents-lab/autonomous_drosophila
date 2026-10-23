@@ -1,0 +1,23 @@
+# NGU (Badia et al., 2020): episodic novelty modulated by RND lifelong novelty.
+type: ngu
+kwargs:  # ssrl.idms.NGU
+  rep_dim: 32
+  hidden_dim: 256
+  n_layers: 2
+  k: 10
+  scale: 0.3
+  kernel_epsilon: 1.0e-4
+  cluster_distance: 8.0e-3
+  pseudo_count_c: 1.0e-3
+  max_similarity: 8.0
+  lifelong_clip: 5.0
+  use_rnd: true
+  rnd_hidden_dim: 256
+  rnd_output_dim: 256
+  rnd_layers: 2
+  inverse_coef: 1.0
+  rnd_coef: 1.0
+  vectorized_scan: true
+  discrete_actions: true
+  eps: 1.0e-8
+  act: relu

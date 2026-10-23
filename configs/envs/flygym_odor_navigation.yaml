@@ -1,0 +1,74 @@
+# @package _global_
+
+envs:
+  task: flygym_odor_navigation
+  backend: warp
+  collection_memory_policy: startup
+  reset_render_capacity: 128
+  ccd_iterations: 35
+  multiccd: disable
+  max_contacts: 128
+  max_constraints: 500
+  noslip_iterations: 0
+  enable_controller_corrections: false
+  steps: 10000000
+  # Training warp envs only; eval uses eval_env_num additional GPU warp sims.
+  env_num: 2048
+  eval_env_num: 10
+  eval_episode_num: 50
+  eval_every: 5
+
+  seed: ${seed}
+  device: ${device}
+
+  arena_mode: flat_odor_obstacles
+  odor_layout: single_source
+  observation_components: [odor, fly_vision, proprioception]
+  rgb_size: [32, 32]
+  odor_log_transform: false
+
+  # Layout randomization (train + eval share flags; eval uses eval_seed_offset for seeds)
+  randomize_odor_source: true
+  randomize_obstacles: true
+  obstacle_count_range: [3, 5]
+  odor_source_x_range: [20.0, 30.0]
+  odor_source_y_range: [-6.0, 6.0]
+  obstacle_x_range: [6.0, 20.0]
+  obstacle_y_range: [-8.0, 8.0]
+  inactive_obstacle_position: [1000.0, 0.0]
+  min_spawn_to_odor_distance: 10.0
+  min_spawn_to_obstacle_distance: 3.0
+  min_obstacle_to_odor_distance: 4.0
+  min_obstacle_spacing: 4.0
+  layout_sampling_attempts: 128
+
+  # Separate deterministic seed stream for eval (same layouts across policy tests)
+  eval_seed_offset: 10000
+
+  policy_action_space: discrete
+  action_set: walk7_groom
+  timestep: 1e-4
+  decision_dt: 0.1
+  episode_time_seconds: 5.0
+  target_radius: 2.0
+  progress_reward_weight: 1.0
+  time_penalty: 0.01
+  success_bonus: 10.0
+  min_height: 0.03
+  low_height_consecutive_decisions: 5
+  terminate_on_success: true
+  terminate_on_obstacle_collision: false
+  obstacle_collision_penalty: 0
+  floor_contact_body_preset: tibia_tarsus_only
+  sanitize_nonfinite_rollout: true
+  nonfinite_rollout_reward: 0.0
+  nonfinite_rollout_obs_fill: 0.0
+  groom_replay_path: data/grooming.npz
+  groom_startup_blend_seconds: 0.05
+  spawn_xy_jitter: 0
+  spawn_yaw_jitter: 0
+
+
+algo:
+  # Extrinsic odor-nav run normalized rewards. Intrinsic overrides this to false.
+  norm_reward: true

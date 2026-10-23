@@ -1,0 +1,19 @@
+# C-TeC: contrastive temporal curiosity. Rewards use a geometrically sampled
+# future state from the same rollout, so they are computed when it ends.
+type: ctec
+kwargs:  # ssrl.idms.CTEC
+  rep_dim: 64
+  hidden_dim: 256
+  n_layers: 2
+  scale: 1.0
+  discount: 0.99
+  temperature: 1.0
+  learn_temperature: true
+  similarity: l1
+  loss_type: infonce
+  normalize_embeddings: true
+  # The reference implementation draws one geometrically weighted future state.
+  reward_estimator: single
+  reward_normalize_truncation: false
+  replay_batch_size: 256
+  act: relu

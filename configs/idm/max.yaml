@@ -1,0 +1,19 @@
+# MAX (Shyam et al., 2019): ensemble of probabilistic (diagonal-Gaussian)
+# forward models; reward is the closed-form Jensen-Renyi divergence of the
+# ensemble predictions (Eq. 9), the probabilistic analogue of disagreement.
+# Defaults from the authors' released continuous-control implementation.
+type: max
+kwargs:  # ssrl.idms.MAX
+  n_models: 32
+  hidden_dim: 512
+  mlp_layers: 4
+  act: swish
+  scale: 1.0
+  # Variance temperature (paper Sec 2.4): 0 => ignore predicted variance (pure
+  # mean disagreement), 1 => full JRD. The paper uses 0.1 for continuous envs.
+  jrd_lambda: 0.1
+  min_log_var: -5.0
+  max_log_var: -1.0
+  normalize_rewards: false
+  eps: 1.0e-8
+  chunk_size: 32

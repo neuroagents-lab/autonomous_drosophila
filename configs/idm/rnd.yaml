@@ -1,0 +1,12 @@
+# RND (Burda et al., 2019): prediction error against a fixed random network.
+type: rnd
+kwargs:  # ssrl.idms.RND
+  hidden_dim: 256
+  # The original RND target/predictor embedding has 512 outputs. The hidden
+  # MLP is an adaptation because the reference network is convolutional.
+  output_dim: 512
+  mlp_layers: 2
+  scale: 1.0
+  normalize_rewards: true
+  eps: 1.0e-8
+  act: relu

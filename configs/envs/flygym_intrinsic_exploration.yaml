@@ -1,0 +1,31 @@
+# @package _global_
+# Spread three-odor intrinsic exploration arena: center spawn, wide obstacles/odors.
+
+defaults:
+  - flygym_odor_navigation
+  - _self_
+
+envs:
+  steps: 50000000
+  eval_episode_num: 0
+  eval_env_num: 5
+  odor_layout: three_sources
+  obstacle_count_range: [12, 50]
+  odor_source_x_range: [-35.0, 35.0]
+  odor_source_y_range: [-35.0, 35.0]
+  obstacle_x_range: [-45.0, 45.0]
+  obstacle_y_range: [-45.0, 45.0]
+  min_spawn_to_odor_distance: 15.0
+  min_spawn_to_obstacle_distance: 4.0
+  min_obstacle_to_odor_distance: 5.0
+  min_obstacle_spacing: 5.0
+  min_odor_source_spacing: 12.0
+  reward_odor_source_indices: [0, 1, 2]
+  terminate_on_success: false
+  odor_touch_reward_mode: per_visit
+  progress_reward_weight: 0.0
+  time_penalty: 0.0
+
+algo:
+  # 50M intrinsic cohort: VecNormalize observations only.
+  norm_reward: false

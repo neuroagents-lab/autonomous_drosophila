@@ -1,0 +1,24 @@
+# CSF: contrastive skill features, with skills on the unit sphere.
+type: csf
+# Hold one skill for the whole episode.
+skill_horizon: 0
+kwargs:  # ssrl.idms.CSF
+  num_skills: 4
+  skill_dim: 4
+  prior_name: uniform_hypersphere
+  proj_dim: 0
+  proj_hidden_dim: 1024
+  proj_layers: 2
+  entropy_coef: 0.0
+  reward_mode: inner
+  posterior_type: dot_product
+  temperature: 1.0
+  normalize_features: false
+  normalize_skills: false
+  input_norm_type: none
+  input_norm_eps: 1.0e-3
+  xi: 5.0
+  num_negatives: 256
+  sample_prior_negatives: true
+  exclude_positive: true
+  act: relu

@@ -1,0 +1,16 @@
+# Gamma-Progress-style empowerment learning progress. The fast Latent-GCE
+# channel is trained normally; the trailing channel is a slow parameter copy.
+# Reward is current channel capacity minus trailing channel capacity.
+type: empowerment_gain
+intrinsic_scale: 1.0
+normalize_intrinsic: true
+kwargs:  # ssrl.idms.EmpowermentGain
+  hidden_dim: 400
+  n_layers: 5
+  gamma: 0.99
+  gce_latent_dim: 64
+  gce_power: 1.0
+  gce_waterfill_iters: 32
+  gce_recon_scale: 1.0
+  gce_state_noise: false
+  act: relu

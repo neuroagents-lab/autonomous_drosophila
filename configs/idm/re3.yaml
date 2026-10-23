@@ -1,0 +1,16 @@
+# RE3 (Seo et al., 2021): k-NN state entropy in a fixed random encoder space.
+type: re3
+kwargs:  # ssrl.idms.RE3
+  rep_dim: 50
+  hidden_dim: 256
+  n_layers: 2
+  k: 53
+  # RE3's beta coefficient.
+  scale: 1.0
+  log_reward: false
+  reward_normalize: true
+  eps: 1.0e-8
+  knn_chunk_size: 1024
+  memory_size: 2048
+  memory_sample_size: 2048
+  act: relu

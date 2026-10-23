@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+    content="Intrinsic motivation in a biomechanical fly. Hierarchical skill discovery matches Drosophila behavior and neural signatures of future turning.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Intrinsic Goals for Autonomous Agents</title>
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://neuroagents-lab.github.io/autonomous_drosophila/">
+  <meta property="og:title"
+    content="Intrinsic Goals for Autonomous Agents: Hierarchical Exploration Captures Future Volitional Action in Drosophila">
+  <meta property="og:description"
+    content="Intrinsic motivation in a biomechanical fly. Hierarchical skill discovery matches Drosophila behavior and neural signatures of future turning.">
+  <meta property="og:image" content="https://neuroagents-lab.github.io/autonomous_drosophila/static/images/og.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Intrinsic Goals for Autonomous Agents">
+  <meta name="twitter:description"
+    content="Hierarchical skill discovery in a biomechanical fly matches behavior and prospective neural signals in Drosophila.">
+  <meta name="twitter:image" content="https://neuroagents-lab.github.io/autonomous_drosophila/static/images/og.jpg">
+
+  <link rel="icon" href="static/favicon.svg" type="image/svg+xml">
+  <link rel="canonical" href="https://neuroagents-lab.github.io/autonomous_drosophila/">
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+</head>
+
+<body>
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="has-text-centered">
+          <h1 class="title is-2 publication-title">Intrinsic Goals for Autonomous Agents: Hierarchical Exploration
+            Captures Future Volitional Action in Drosophila</h1>
+          <p class="subtitle is-5 publication-venue">Preprint</p>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://d3tk.github.io">Declan Kutscher</a><sup>1,2,*</sup>,
+            </span>
+            <span class="author-block"><a href="https://scholar.google.com/citations?user=_2mC_l4AAAAJ&hl=en">Reece
+                Keller</a><sup>3,4,*</sup>,</span>
+            <span class="author-block"><a href="https://www.ri.cmu.edu/ri-people/alyn-kirsch-tornell/">Alyn Kirsch</a><sup>4</sup>,</span>
+            <span class="author-block"><a href="https://scholar.google.com/citations?user=bhHQOjgAAAAJ&hl=en">Felix
+                Pei</a><sup>3,2</sup>,</span>
+            <span class="author-block"><a href="https://anayebi.github.io/">Aran Nayebi</a><sup>2,3,4</sup></span>
+          </div>
+
+          <div class="is-size-6 publication-authors">
+            <span class="author-block">
+              <sup>1</sup>Department of Computer Science, University of Maryland, College Park<br>
+              <sup>2</sup>Machine Learning Department, Carnegie Mellon University<br>
+              <sup>3</sup>Neuroscience Institute, Carnegie Mellon University<br>
+              <sup>4</sup>Robotics Institute, Carnegie Mellon University
+            </span>
+            <span class="eql-cntrb"><br><sup>*</sup>Equal contribution</span>
+          </div>
+
+          <div class="publication-links">
+            <span class="link-block">
+              <a href="https://arxiv.org/abs/XXXX.XXXXX" class="external-link button is-normal is-rounded is-dark">
+                <span class="icon"><i class="fas fa-file-pdf"></i></span>
+                <span>Arxiv</span>
+              </a>
+            </span>
+            <span class="link-block">
+              <a href="https://github.com/neuroagents-lab/autonomous_drosophila"
+                class="external-link button is-normal is-rounded is-dark">
+                <span class="icon"><i class="fab fa-github"></i></span>
+                <span>Code</span>
+              </a>
+            </span>
+            <span class="link-block">
+              <a href="#citation" class="external-link button is-normal is-rounded is-dark">
+                <span class="icon"><i class="fas fa-quote-right"></i></span>
+                <span>Cite</span>
+              </a>
+            </span>
+          </div>
+
+          <nav class="page-nav" aria-label="On this page">
+            <a href="#findings">Findings</a>
+            <a href="#method">Method</a>
+            <a href="#results">Results</a>
+            <a href="#citation">Citation</a>
+          </nav>
+
+          <p class="takeaway">We asked whether intrinsic motivation alone can explain how flies generate
+            spontaneous behavior and represent future actions. Across 20 intrinsic objectives in a biomechanical fly
+            with no external reward, hierarchical skill discovery is the strongest joint match to fly behavior and
+            neural signatures of future turning.</p>
+          <p class="takeaway-answer">The fly appears to be maximizing state space coverage over the population
+            <em>not</em>
+            individuals via DIAYN, a form of curiosity!
+          </p>
+        </div>
+
+        <div class="columns is-variable is-5 video-row">
+          <div class="column">
+            <video autoplay muted loop playsinline controls preload="metadata"
+              poster="static/videos/compare_poster.jpg">
+              <source src="static/videos/real_vs_sim.mp4" type="video/mp4">
+            </video>
+            <p class="video-caption">Left: a real fly walking on a ball in the dark. Right: a trained DIAYN policy
+              on the same kind of ball.</p>
+          </div>
+          <div class="column">
+            <video autoplay muted loop playsinline controls preload="metadata" poster="static/videos/arena_poster.jpg">
+              <source src="static/videos/arena.mp4" type="video/mp4">
+            </video>
+            <p class="video-caption">The training arena for our simulated fly agents has obstacles and multiple odor
+              sources. The insets show each eye and the odor readout. The playback is at 0.24x speed.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="findings">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3 has-text-centered">Findings</h2>
+      <div class="columns">
+        <div class="column">
+          <article class="finding">
+            <p class="finding-index">01</p>
+            <h3 class="title is-5">Future actions become predictable</h3>
+            <button class="zoom-button crop-panel-a" type="button"
+              data-full="static/images/paper/fig3_neural_decoding.png"
+              aria-label="Enlarge neural prospective coding figure">
+              <img src="static/images/paper/fig3_neural_decoding.png"
+                alt="Neural prospective coding before a turn for the fly, DIAYN, other intrinsic objectives, and controls.">
+            </button>
+            <p>Similar to the fly's brain activity, neural activity in the intrinsically trained policies is predictive
+              of future turn directions seconds in advance.</p>
+          </article>
+        </div>
+        <div class="column">
+          <article class="finding">
+            <p class="finding-index">02</p>
+            <h3 class="title is-5">Skills reproduce behavioral diversity</h3>
+            <button class="zoom-button crop-fig4-a" type="button" data-full="static/images/paper/fig4_turning_bias.png"
+              aria-label="Enlarge turning-bias figure">
+              <img src="static/images/paper/fig4_turning_bias.png"
+                alt="Turning-bias distributions for flies, DIAYN skills, other objectives, and controls.">
+            </button>
+            <p>Each point is a recording from a real fly or a model episode. The y-axis shows turning bias. DIAYN's
+              repertoire of skills covers the distribution of the turning biases seen in the real fly population.
+            </p>
+          </article>
+        </div>
+        <div class="column">
+          <article class="finding">
+            <p class="finding-index">03</p>
+            <h3 class="title is-5">Internal geometry matches the IPS</h3>
+            <button class="zoom-button crop-panels-ab" type="button"
+              data-full="static/images/paper/fig5_representations.png" aria-label="Enlarge representation figure">
+              <img src="static/images/paper/fig5_representations.png"
+                alt="Fly IPS, trained DIAYN, and random DIAYN colored by angular and forward velocity.">
+            </button>
+            <p>In the real fly, the difference in activity between the left and right hemispheres of the IPS correlates
+              with angular velocity, while the sum correlates with forward velocity. The same internal geometric
+              relationship is present in the actor LSTM layer of the trained DIAYN agent.</p>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section hero is-light" id="method">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3 has-text-centered">Method</h2>
+      <div class="columns has-text-centered method-steps">
+        <div class="column">
+          <p class="finding-index">1</p>
+          <h3 class="title is-5">Train</h3>
+          <p>We train PPO policies with reward from twenty intrinsic objectives in FlyGym. </p>
+        </div>
+        <div class="column">
+          <p class="finding-index">2</p>
+          <h3 class="title is-5">Evaluate</h3>
+          <p>Freeze the policy and place the fly on a ball in the dark, the virtual version of the real fly experiment.
+          </p>
+        </div>
+        <div class="column">
+          <p class="finding-index">3</p>
+          <h3 class="title is-5">Compare</h3>
+          <p>Spontaneous turning, decoding of future turn direction, and low-dimensional internal structure, against
+            real flies.</p>
+        </div>
+      </div>
+
+      <figure class="paper-figure">
+        <button class="zoom-button" type="button" data-full="static/images/paper/fig2_agent.png"
+          aria-label="Enlarge the agent architecture figure">
+          <img src="static/images/paper/fig2_agent.png" alt="Agent architecture and the seven motor primitives.">
+        </button>
+        <figcaption>Fig. 1. The FlyGym simulator produces vision, odor and proprioception observations. They are encoded
+          and then passed to the policy and IDM modules. The IDM produces a reward used for training PPO. The policy
+          chooses one of seven motor primitives every 100&thinsp;ms. A low-level controller turns that choice into joint
+          commands.</figcaption>
+      </figure>
+
+      <figure class="paper-figure">
+        <button class="zoom-button" type="button" data-full="static/images/paper/fig1_environment.png"
+          aria-label="Enlarge the environment figure">
+          <img src="static/images/paper/fig1_environment.png"
+            alt="Training arena, tethered-ball assay, olfaction, proprioception, and vision.">
+        </button>
+        <figcaption>Fig. 2. The agents are trained in an arena with obstacles and three odor sources. Evaluation is
+          head-fixed walking on a ball treadmill. The observations are vision from the two compound eyes mapped to fly
+          ommatidia, a bilateral odor signal, and proprioception.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="section" id="results">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3 has-text-centered">Results</h2>
+
+      <article class="result-block">
+        <h3 class="title is-4">Future turns are readable before they happen</h3>
+        <p>In the window from 15 to 8 seconds before a turn, the fly IPS predicts turn direction above chance. The
+          same readout on frozen agents shows that only some intrinsic objectives develop this prospective signal.
+          DIAYN is the objective that also keeps the fly's relationship between what the internal state predicts and
+          what the behavior itself predicts.</p>
+        <figure class="paper-figure">
+          <button class="zoom-button" type="button" data-full="static/images/paper/fig3_neural_decoding.png"
+            aria-label="Enlarge Figure 3">
+            <img src="static/images/paper/fig3_neural_decoding.png"
+              alt="Neural and behavioral decoding of future turn direction.">
+          </button>
+          <figcaption>Figure 3. Neural and behavioral prospective coding with future turn direction.</figcaption>
+        </figure>
+      </article>
+
+      <article class="result-block">
+        <h3 class="title is-4">One objective covers the range of individual flies</h3>
+        <p>DIAYN learns a set of skills. Held fixed, each skill is a different exploratory strategy. Plotted one
+          rollout at a time, those strategies spread across left- and right-turning biases in the same way the flies
+          do. Other objectives and random controls do not capture this variability.</p>
+        <figure class="paper-figure">
+          <button class="zoom-button" type="button" data-full="static/images/paper/fig4_turning_bias.png"
+            aria-label="Enlarge Figure 4">
+            <img src="static/images/paper/fig4_turning_bias.png"
+              alt="Turning bias of the each Fly and each IDM agent episode as well as the trajectories of the flies and DIAYN skills.">
+          </button>
+          <figcaption>Figure 4. Turning bias. Each point is one fly or one IDM episode from a tethered-ball recording.
+            Positive values are right-turning, negative values left-turning. Panel b is the trajectories of the flies
+            (gray) and the evaluated skills of DIAYN (blue) </figcaption>
+      </article>
+
+      <article class="result-block">
+        <h3 class="title is-4">Emergence of internal geometry of biological neural activity</h3>
+        <p>In the fly IPS, the difference in activity between the left and right hemispheres correlates with angular
+          velocity, while the sum correlates with forward velocity. The same relationship emerges in trained DIAYN
+          and is absent in the random control.</p>
+        <figure class="paper-figure">
+          <button class="zoom-button" type="button" data-full="static/images/paper/fig5_representations.png"
+            aria-label="Enlarge Figure 5">
+            <img src="static/images/paper/fig5_representations.png"
+              alt="Low-dimensional maps of fly IPS, trained DIAYN, and random DIAYN.">
+          </button>
+          <figcaption>Figure 5. Fly IPS, trained DIAYN, and random DIAYN. Color is angular velocity (top) and forward
+            velocity (bottom). Last panel is the ranking of the mean Pearson r<sup>2</sup> of each IDM's heatmaps with
+            the Fly
+            IPS.</figcaption>
+        </figure>
+      </article>
+    </div>
+  </section>
+
+  <section class="section" id="citation">
+    <div class="container is-max-desktop content">
+      <div class="level is-mobile">
+        <div class="level-left">
+          <h2 class="title">BibTeX</h2>
+        </div>
+        <div class="level-right">
+          <button id="copy-bibtex" class="button is-small is-rounded" type="button">Copy</button>
+        </div>
+      </div>
+      <pre><code id="bibtex">@misc{kutscher2026intrinsic,
+        title   = {Intrinsic Goals for Autonomous Agents: Hierarchical Exploration Captures Future Volitional Action in Drosophila},
+        author  = {Declan Kutscher and Reece Keller and Alyn Kirsch and Felix Pei and Aran Nayebi},
+        year    = {2026},
+        eprint = {XXXX.XXXXX},
+        archivePrefix = {arXiv},
+        primaryClass={cs.XX},
+          url = {xxxx}
+      }
+</code></pre>
+
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="content has-text-centered">
+        <p>This page was built using the <a
+            href="https://github.com/eliahuhorwitz/Academic-project-page-template">Academic
+            Project Page Template</a>. It is licensed under a <a rel="license"
+            href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0
+            International License</a>.</p>
+      </div>
+    </div>
+  </footer>
+
+  <dialog id="lightbox">
+    <img alt="">
+  </dialog>
+
+  <script src="static/js/index.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,19 @@
+# Proto-RL (Yarats et al., 2021): k-NN entropy over prototype-projected states.
+type: proto_rl
+kwargs:  # ssrl.idms.ProtoRL
+  rep_dim: 128
+  hidden_dim: 256
+  # Predictor hidden width (`pred_dim`) in the authors' implementation.
+  pred_dim: 512
+  n_layers: 2
+  num_prototypes: 512
+  candidates_per_prototype: 4
+  temperature: 0.1
+  sinkhorn_iters: 3
+  # Upstream encoder_target_tau=0.05 means target=.95*target+.05*online.
+  target_momentum: 0.95
+  k: 3
+  # Proto-RL uses the raw kth-neighbor distance as its exploration reward.
+  reward_normalize: false
+  eps: 1.0e-8
+  act: relu

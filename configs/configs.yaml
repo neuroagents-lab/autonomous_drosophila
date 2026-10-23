@@ -1,0 +1,30 @@
+defaults:
+  - algo: ppo
+  - envs: flygym_odor_navigation
+  - optional idm: null
+  - _self_
+  - override hydra/job_logging: disabled
+
+logdir: runs/${now:%Y-%m-%d}/${now:%H-%M-%S}
+seed: 0
+device: cuda
+
+trainer:
+  steps: ${envs.steps}
+  eval_episode_num: ${envs.eval_episode_num}
+  eval_every: ${envs.eval_every}
+
+wandb:
+  enabled: false
+  project: autonomous-drosophila
+  entity: null
+  name: null
+  group: null
+  job_type: train
+  tags: []
+  notes: null
+  mode: ${oc.env:WANDB_MODE,online}
+
+hydra:
+  run:
+    dir: ${logdir}

@@ -1,0 +1,7 @@
+# Forward-model empowerment baseline.
+type: empowerment_forward
+kwargs:  # ssrl.idms.ForwardEmpowerment
+  hidden_dim: 256
+  n_layers: 2
+  action_concat: true
+  act: relu
