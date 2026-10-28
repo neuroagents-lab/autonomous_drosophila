@@ -1,0 +1,19 @@
+# VIC (Gregor et al., 2016): decode the skill from a segment's start and final
+# states. The reward is paid when the segment ends.
+type: vic
+# Completed skill segments per update.
+replay_batch_size: 512
+# Resample skills every 5 s (50 decisions at decision_dt=0.1).
+skill_horizon: 50
+kwargs:  # ssrl.idms.VIC
+  num_skills: 12
+  skill_dim: 0
+  prior_name: uniform_categorical
+  hidden_dim: 256
+  n_layers: 2
+  entropy_coef: 0.0
+  posterior_type: dot_product
+  temperature: 0.1
+  condition_on_start: true
+  reward_at_end: true
+  act: relu

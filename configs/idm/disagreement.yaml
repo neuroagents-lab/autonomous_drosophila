@@ -1,0 +1,12 @@
+# Plan2Explore-style ensemble disagreement (Pathak et al., 2019; Sekar et al.,
+# 2020): variance of an ensemble of action-conditioned forward models.
+type: disagreement
+kwargs:  # ssrl.idms.Disagreement
+  n_models: 5
+  hidden_dim: 256
+  mlp_layers: 2
+  act: relu
+  scale: 1.0
+  use_log_reward: false
+  normalize_rewards: false
+  eps: 1.0e-8

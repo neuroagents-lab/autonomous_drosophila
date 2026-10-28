@@ -1,0 +1,20 @@
+# Process empowerment: one-step feedback MI I(A;S'|S) under the policy.
+type: empowerment_process
+intrinsic_scale: 1.0
+kwargs:  # ssrl.idms.ProcessEmpowerment
+  # 'gce' = one-step MI under the policy's action covariance via the learned
+  # Gaussian channel (no inner max; PPO maximizes the accumulated MI, which is
+  # the feedback-capacity objective). 'vlb' = Barber-Agakov particle estimate.
+  estimator: gce
+  gce_latent_dim: 64
+  gce_waterfill_iters: 32
+  gce_recon_scale: 1.0
+  gce_state_noise: false
+  hidden_dim: 256
+  n_layers: 2
+  # Policy action samples per state used to estimate the action covariance.
+  particles: 16
+  next_samples: 1
+  action_concat: true
+  reward_chunk_size: 0
+  act: relu

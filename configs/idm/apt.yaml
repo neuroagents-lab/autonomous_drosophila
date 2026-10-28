@@ -1,0 +1,18 @@
+# APT (Liu & Abbeel, 2021): particle-based state entropy in a learned space.
+type: apt
+kwargs:  # ssrl.idms.APT
+  rep_dim: 256
+  hidden_dim: 256
+  n_layers: 2
+  k: 16
+  # Defaults from the authors' compact reproduction. The running-mean reward
+  # normalization differs from its optional RMS recipe.
+  knn_clip: 0.0005
+  normalize_phi: true
+  train_phi: true
+  reward_normalize: true
+  eps: 1.0e-8
+  knn_chunk_size: 1024
+  memory_size: 2048
+  memory_sample_size: 2048
+  act: relu

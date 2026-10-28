@@ -1,0 +1,16 @@
+# DIAYN (Eysenbach et al., 2019): discriminate skills from visited states.
+type: diayn
+# Original discriminator minibatch size.
+replay_batch_size: 128
+# The reference implementation holds a skill for the full episode.
+skill_horizon: 0
+kwargs:  # ssrl.idms.DIAYN
+  num_skills: 50
+  skill_dim: 0
+  prior_name: uniform_categorical
+  hidden_dim: 300
+  n_layers: 2
+  entropy_coef: 0.0
+  posterior_type: dot_product
+  temperature: 0.1
+  act: relu

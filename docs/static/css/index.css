@@ -1,0 +1,209 @@
+body {
+  font-family: "Noto Sans", sans-serif;
+}
+
+.publication-title,
+.publication-authors,
+.teaser {
+  font-family: "Google Sans", sans-serif;
+}
+
+.publication-venue {
+  color: #555;
+  font-weight: bold;
+}
+
+.publication-authors a {
+  color: hsl(204, 86%, 53%) !important;
+}
+
+.publication-authors a:hover {
+  text-decoration: underline;
+}
+
+.author-block {
+  display: inline-block;
+}
+
+.eql-cntrb {
+  font-size: smaller;
+}
+
+.link-block a,
+.link-block .button {
+  margin: 5px;
+}
+
+.page-nav {
+  margin: 1.25rem 0 0.5rem;
+}
+
+.page-nav a {
+  margin: 0 0.6rem;
+  color: #363636;
+}
+
+.takeaway {
+  font-size: 1.35rem;
+  line-height: 1.45;
+  margin: 1.5rem auto 0.6rem;
+  max-width: 40rem;
+}
+
+.takeaway-answer {
+  max-width: 42rem;
+  margin: 0 auto 1.5rem;
+  color: #363636;
+}
+
+.video-row {
+  margin-top: 0.5rem;
+}
+
+.video-row video {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: contain;
+  border-radius: 10px;
+  background: #111;
+  display: block;
+}
+
+.video-caption,
+.paper-figure figcaption {
+  margin-top: 0.6rem;
+  color: #4a4a4a;
+  font-size: 0.95rem;
+  text-align: center;
+}
+
+.stat-row {
+  margin-top: 1.5rem;
+}
+
+.stat-number {
+  font-family: "Google Sans", sans-serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.stat-label {
+  color: #4a4a4a;
+  font-size: 0.9rem;
+}
+
+.finding-index {
+  font-family: "Google Sans", sans-serif;
+  font-weight: 700;
+  color: #888;
+  letter-spacing: 0.04em;
+}
+
+.finding img,
+.paper-figure img {
+  width: 100%;
+  height: auto;
+  display: block;
+  background: #fff;
+}
+
+.zoom-button {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: zoom-in;
+}
+
+.crop-panel-a,
+.crop-panels-ab,
+.crop-fig4-a {
+  position: relative;
+  overflow: hidden;
+}
+
+.crop-panel-a {
+  aspect-ratio: 1.8;
+}
+
+.crop-panel-a img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200%;
+  max-width: none;
+}
+
+.crop-panels-ab {
+  aspect-ratio: 1.27;
+}
+
+.crop-panels-ab img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 150%;
+  max-width: none;
+}
+
+.crop-fig4-a {
+  aspect-ratio: 1.26;
+}
+
+.crop-fig4-a img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 163%;
+  max-width: none;
+}
+
+.zoom-button:focus-visible {
+  outline: 2px solid hsl(204, 86%, 53%);
+  outline-offset: 3px;
+}
+
+.paper-figure {
+  margin: 1.5rem 0 2.5rem;
+}
+
+.result-block {
+  margin-bottom: 2.5rem;
+}
+
+#lightbox {
+  border: 0;
+  padding: 0;
+  background: transparent;
+  max-width: 96vw;
+  max-height: 96vh;
+}
+
+#lightbox img {
+  max-width: 96vw;
+  max-height: 92vh;
+  width: auto;
+  height: auto;
+}
+
+#lightbox::backdrop {
+  background: rgba(0, 0, 0, 0.86);
+}
+
+@media (max-width: 768px) {
+  .video-row video {
+    aspect-ratio: auto;
+    height: auto;
+  }
+
+  .takeaway {
+    font-size: 1.15rem;
+  }
+
+  .page-nav a {
+    display: inline-block;
+    margin: 0.2rem 0.45rem;
+  }
+}

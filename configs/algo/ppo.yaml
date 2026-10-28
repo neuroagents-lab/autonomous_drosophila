@@ -1,0 +1,41 @@
+# @package _global_
+# sb3-contrib RecurrentPPO (MultiInputLstmPolicy) on the FlyGym multimodal
+# feature extractor. VecNormalize normalizes the odor and proprioception
+# observations; envs configs choose whether it also normalizes rewards.
+
+algo:
+  learning_rate: 3.0e-4
+  n_steps: 100
+  batch_size: 4096
+  n_epochs: 10
+  gamma: 0.99
+  gae_lambda: 0.95
+  clip_range: 0.2
+  ent_coef: 0.001
+  vf_coef: 0.5
+  max_grad_norm: 0.5
+  target_kl: 0.03
+  verbose: 1
+  norm_reward: false
+  # Continue from <logdir>/latest_model.zip when it exists.
+  resume: true
+  policy_kwargs:
+    net_arch: [128, 128]
+    lstm_hidden_size: 256
+    features_extractor_kwargs:
+      fly_vision_latent_dim: 128
+      odor_latent_dim: 16
+      proprioception_latent_dim: 64
+
+# Intrinsic reward module (IDM). `idm=<name>` loads configs/idm/<name>.yaml,
+# which sets `type` and the ssrl constructor arguments in `kwargs`. The IDM
+# reads the policy's skill-free extractor features; PPO optimizes
+# `intrinsic_scale * intrinsic reward` and ignores the extrinsic reward.
+idm:
+  type: none
+  lr: 1.0e-4
+  # Transitions (or completed skill segments) per IDM update, once per rollout.
+  replay_batch_size: 256
+  intrinsic_scale: 1.0
+  # Divide the intrinsic reward by its running RMS before scaling.
+  normalize_intrinsic: false

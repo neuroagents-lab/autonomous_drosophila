@@ -1,0 +1,61 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "autonomous-drosophila"
+version = "0.1.0"
+description = "Implementation of Intrinsic Goals for Autonomous Agents: Hierarchical Exploration Captures Future Volitional Action in Drosophila"
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "flygym[warp]==2.1.0",
+    "gymnasium>=1.2.2",
+    "h5py>=3.16.0",
+    "hydra-core>=1.3.2",
+    "jax==0.4.33",
+    "matplotlib>=3.10.8",
+    "ninjax==3.6.3",
+    "numpy>=2.0,<2.1",
+    "optax==0.2.5",
+    "sb3-contrib>=2.8.0",
+    "scipy>=1.17.1",
+    "ssrl @ git+https://github.com/neuroagents-lab/ssrl-agent.git@8d1ac3ee36a1da18da01d296f4f4d92d98987996",
+    "stable-baselines3>=2.2.0",
+    "torch>=2.2.0",
+    "wandb>=0.25.1",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=8.0",
+    "ruff>=0.15",
+    "vulture>=2.14",
+]
+
+[tool.setuptools.packages.find]
+include = ["envs*", "fly_agent*", "policy*"]
+
+[tool.uv.sources]
+torch = { index = "pytorch-cu129", marker = "sys_platform != 'darwin'" }
+
+[[tool.uv.index]]
+name = "pytorch-cu129"
+url = "https://download.pytorch.org/whl/cu129"
+explicit = true
+
+[tool.pytest.ini_options]
+addopts = "-ra"
+
+[tool.ruff]
+target-version = "py312"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["F", "I", "UP", "B", "C4", "SIM", "RET", "PTH", "RUF"]
+
+[tool.ruff.lint.per-file-ignores]
+# Warp kernels are a restricted Python dialect; keep the explicit if/else.
+"fly_agent/vision/gpu_retina.py" = ["SIM108"]

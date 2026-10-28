@@ -1,0 +1,23 @@
+# Potential empowerment: channel capacity of a learned Gaussian channel.
+type: empowerment_potential
+intrinsic_scale: 1.0
+kwargs:  # ssrl.idms.PotentialEmpowerment
+  # 'gce' = Latent Gaussian Channel Empowerment (Zhao, Lu, Abbeel & Tiomkin,
+  # ICLR 2021): the channel capacity via water-filling over the learned
+  # Gaussian channel. 'vlb' = the variational estimator (Barber-Agakov MI +
+  # Blahut-Arimoto action head), kept for comparison.
+  estimator: gce
+  gce_latent_dim: 64        # reduced latent for the Gaussian channel
+  gce_power: 1.0            # action power budget (sets empowerment units)
+  gce_waterfill_iters: 32
+  gce_recon_scale: 1.0
+  gce_state_noise: false
+  hidden_dim: 256
+  n_layers: 2
+  # Used by estimator=vlb.
+  particles: 16
+  next_samples: 1
+  q_loss_weight: 1.0
+  action_concat: true
+  reward_chunk_size: 0
+  act: relu

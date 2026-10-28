@@ -1,0 +1,14 @@
+# ICM (Pathak et al., 2017) with a learned feature projector and a
+# beta-weighted forward/inverse objective.
+type: icm_pathak
+kwargs:  # ssrl.idms.ICM
+  proj_dim: 256
+  proj_hidden_dim: 256
+  proj_layers: 1
+  hidden_dim: 256
+  n_layers: 2
+  forward_loss_weight: 0.2
+  # PREDICTION_BETA in the authors' implementation.
+  scale: 0.01
+  discrete_actions: true
+  act: relu

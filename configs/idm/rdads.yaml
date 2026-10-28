@@ -1,0 +1,16 @@
+# Reverse DADS: estimates I(Z; S' | S) with learned posteriors q(z | s, s') and q(z | s).
+type: rdads
+normalize_intrinsic: true
+# Resample skills every 10 s (100 decisions at decision_dt=0.1).
+skill_horizon: 100
+kwargs:  # ssrl.idms.RDADS
+  num_skills: 2
+  skill_dim: 2
+  prior_name: uniform_box
+  hidden_dim: 512
+  n_layers: 2
+  entropy_coef: 0.0
+  # A continuous skill posterior must be a normalized density.
+  posterior_type: gaussian
+  temperature: 0.1
+  act: relu

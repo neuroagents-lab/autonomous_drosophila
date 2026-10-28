@@ -1,0 +1,9 @@
+# Gamma learning progress: error of a slow (EMA) forward model minus error of
+# the current forward model.
+type: gamma_progress
+kwargs:  # ssrl.idms.GammaLearningProgress
+  hidden_dim: 256
+  n_layers: 2
+  scale: 1.0
+  gamma: 0.99
+  act: relu
